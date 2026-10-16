@@ -3,25 +3,25 @@ import { ChevronLeft, ChevronRight, Phone, FileText } from 'lucide-react';
 
 const SLIDES = [
   {
-    image: '/images/hero-storefront.svg',
+    image: '/images/sewing-work.jpg',
+    tag: 'Precision Alterations',
+    heading: 'The Perfect Fit Starts With',
+    highlight: 'Professional Alterations',
+    sub: 'Quality tailoring and alterations done with care by our experienced team.',
+  },
+  {
+    image: '/images/services-banner.jpg',
     tag: 'Brilliantly Bright Laundry',
     heading: 'Fresh. Clean. Brilliantly Bright.',
     highlight: 'Laundry & Ironing',
     sub: 'Professional laundry and ironing services with careful attention to every garment.',
   },
   {
-    image: '/images/hero-interior.svg',
+    image: '/images/interior2.jpg',
     tag: 'Professional Garment Care',
     heading: 'Your Clothes Deserve',
     highlight: 'Expert Care',
     sub: 'Dry cleaning, alterations, shoe repair and carpet cleaning — all under one roof.',
-  },
-  {
-    image: '/images/sewing-work.jpg',
-    tag: 'Precision Alterations',
-    heading: 'The Perfect Fit Starts With',
-    highlight: 'Professional Alterations',
-    sub: 'Quality tailoring and alterations done with care by our experienced team.',
   },
 ];
 
@@ -95,26 +95,18 @@ export default function HeroSlider() {
         </div>
       ))}
 
-      {/* Light, image-friendly overlay — keeps the supplied photos visible */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/35 to-black/10 z-10" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/10 z-10" />
 
       <div className="relative z-20 h-full flex items-center">
         <div className="max-w-7xl mx-auto px-6 w-full">
           <div className="max-w-2xl">
-            <div
-              key={`tag-${current}`}
-              className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/30 bg-black/20 backdrop-blur-sm mb-5 ${animating ? 'animate-fade-in' : 'opacity-0'}`}
-            >
+            <div key={`tag-${current}`} className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/30 bg-black/20 backdrop-blur-sm mb-5 ${animating ? 'animate-fade-in' : 'opacity-0'}`}>
               <span className="w-1.5 h-1.5 rounded-full bg-teal-300 animate-pulse" />
               <span className="text-white text-xs font-semibold tracking-widest uppercase">{slide.tag}</span>
             </div>
 
-            <h1
-              key={`h-${current}`}
-              className={`text-white text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-2 ${animating ? 'animate-slide-left' : 'opacity-0'}`}
-              style={{ fontFamily: 'Playfair Display, serif' }}
-            >
+            <h1 key={`h-${current}`} className={`text-white text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-2 ${animating ? 'animate-slide-left' : 'opacity-0'}`} style={{ fontFamily: 'Playfair Display, serif' }}>
               {slide.heading}
             </h1>
 
@@ -123,10 +115,7 @@ export default function HeroSlider() {
               {!done && <span className="typing-cursor" />}
             </h2>
 
-            <p
-              key={`sub-${current}`}
-              className={`text-white/95 text-base md:text-lg leading-relaxed mb-8 max-w-xl ${animating ? 'animate-fade-up delay-300' : 'opacity-0'}`}
-            >
+            <p key={`sub-${current}`} className={`text-white/95 text-base md:text-lg leading-relaxed mb-8 max-w-xl ${animating ? 'animate-fade-up delay-300' : 'opacity-0'}`}>
               {slide.sub}
             </p>
 
@@ -154,12 +143,7 @@ export default function HeroSlider() {
 
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2">
         {SLIDES.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => goTo(i)}
-            aria-label={`Go to slide ${i + 1}`}
-            className={`rounded-full transition-all duration-300 ${i === current ? 'w-8 h-2 bg-teal-300' : 'w-2 h-2 bg-white/60 hover:bg-white'}`}
-          />
+          <button key={i} onClick={() => goTo(i)} aria-label={`Go to slide ${i + 1}`} className={`rounded-full transition-all duration-300 ${i === current ? 'w-8 h-2 bg-teal-300' : 'w-2 h-2 bg-white/60 hover:bg-white'}`} />
         ))}
       </div>
     </section>
